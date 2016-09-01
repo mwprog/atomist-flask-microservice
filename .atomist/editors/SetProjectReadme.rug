@@ -1,0 +1,19 @@
+
+@description "Set the README of a Flask project."
+editorSetProjectReadme
+
+@description "Name of the new project"
+@displayName "Name"
+param project_name: @project_name
+
+@default ""
+@optional
+@description "Description of the new project"
+@displayName "description"
+@validInput "Free Text"
+param description: .*
+
+let template = "readme.mustache"
+
+with project p
+	do merge template to "README.md"

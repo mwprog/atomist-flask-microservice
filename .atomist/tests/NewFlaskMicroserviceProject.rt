@@ -1,0 +1,24 @@
+scenario New project should pass smoke test
+
+let project_name = "my_flask_svc"
+let version = "0.0.1"
+let init_path = "my_flask_svc/__init__.py"
+
+let readme_path = "README.md"
+let description = "And now for something completely different"
+
+given
+  ArchiveRoot
+
+when
+NewFlaskMicroserviceProject
+
+then
+  fileExists { project_name + "/__init__.py" }
+  and fileExists { project_name + "/runserver.py" }
+  and fileExists { project_name + "/views.py" }
+  and fileContains init_path version
+  and fileContains readme_path project_name
+  and fileContains readme_path description
+  and fileContains { project_name + "/runserver.py" } project_name
+  and fileContains { project_name + "/views.py" } project_name

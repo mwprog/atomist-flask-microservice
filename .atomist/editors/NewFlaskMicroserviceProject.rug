@@ -1,0 +1,45 @@
+#
+# Template to generate a project using the Flask framework and the
+# Python language.
+#
+@tag "python"
+@tag "python2"
+@tag "python3"
+@tag "flask"
+@description "Creates a new Python Flask Microservice project"
+@generator "Python Flask Microservice"
+editor NewFlaskMicroserviceProject
+
+uses atomist.common-editors.UpdateReadme
+uses SetProjectReadme
+uses AddCreationDateToReadme
+
+
+@maxLength 21
+@description "Name your project following PEP8 conventions."
+@displayName "Project name"
+param project_name: @project_name
+
+@default "0.0.1"
+@displayName "Semantic Version"
+@optional
+@description "A Semantic Version number of the form: MAJOR.MINOR.PATCH following guidelines at http://semver.org/"
+@validInput "MAJOR.MINOR.PATCH"
+param version: @semantic_version
+
+@default "My new project"
+@optional
+@description "Describe your project in a few words."
+@displayName "description"
+@validInput "Free Text"
+param description: .*
+
+with project p
+   do replaceInPath "flask_service" project_name
+
+with file f when { f.name().endsWith(".py") }
+   do replace "flask_service" project_name
+
+
+SetProjectReadme
+AddCreationDateToReadme
