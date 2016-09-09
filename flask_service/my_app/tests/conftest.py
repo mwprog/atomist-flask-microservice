@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+import pytest
+
 from flask_service import create_app
 
 
-if __name__ == '__main__':
+@pytest.fixture
+def app():
     app = create_app()
-    app.run()
+    return app

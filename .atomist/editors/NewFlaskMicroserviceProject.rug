@@ -11,13 +11,17 @@
 editor NewFlaskMicroserviceProject
 
 uses SetProjectReadme
-uses AddCreationDateToReadme
 
 
 @maxLength 21
 @description "Name your project following PEP8 conventions."
 @displayName "Project name"
-param project_name: @project_name
+param project_name: "^[A-Za-z0-9_]+$"
+
+@maxLength 21
+@description "Name your Flask application."
+@displayName "Application name"
+param app_name: "^[A-Za-z_]+$"
 
 @default "0.0.1"
 @displayName "Semantic Version"
@@ -34,10 +38,16 @@ param version: @semantic_version
 param description: .*
 
 with project p
+begin
    do replaceInPath "flask_service" project_name
+   do replaceInPath "my_app" app_name
+end
 
-with file f when { f.name().endsWith(".py") }
+with file f when f.name.endsWith ".py"
+begin
+   do replace "the_app" app_name
+   do replace "my_app" app_name
    do replace "flask_service" project_name
-
+end
 
 SetProjectReadme

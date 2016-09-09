@@ -4,7 +4,7 @@
 
 ## Setting up the environment
 
-This project depends on [Python 2.7+ or 3.4+](https://www.python.org/) 
+This project depends on [Python 3.5+](https://www.python.org/) 
 and the [Flask](http://flask.pocoo.org/) web framework.
 
 Once you have installed Python for your environment, you
@@ -18,9 +18,17 @@ the project as follows:
 $ pip install -r requirements.txt
 ```
 
+
 ## Getting started
 
-You can run the application as follows:
+Before you can run the application, the package must be found
+in your `PYTHONPATH`. To do so, run the next command once:
+
+```
+$ python setup.py develop
+```
+
+Run the application as follows:
 
 ```
 $ python {{project_name}}/runserver.py
@@ -28,6 +36,16 @@ $ python {{project_name}}/runserver.py
 
 then point your client at `http://localhost:5000/`.
 
-# History
+## Develop your application
 
-Created from template ${template_name}, version ${template_version}
+### Run tests
+
+Tests are part of the project and should be continuously. Those
+tests are implemented using the [py.test](http://pytest.readthedocs.io/en/latest/) 
+framework and located in the `tests` directory.
+
+To execute them, run the following command:
+
+```
+$ pytest tests
+```

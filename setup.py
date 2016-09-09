@@ -10,10 +10,10 @@ from flask_service import __version__
 
 
 setup(
-    name = "flask_service",
-    version = __version__,
-    description = "Flask based microservice.",
-    maintainer = "Atomist",
-    packages = ["flask_service"],
-    platforms = ["any"]
+    name="flask_service",
+    version=__version__,
+    description="Flask based microservice.",
+    maintainer="Atomist",
+    packages=["flask_service", "flask_service.my_app"],
+    platforms=["any"]
 )

@@ -1,6 +1,7 @@
-scenario New project should pass smoke test
+scenario New project should create a clean Flask project structure
 
 let project_name = "my_flask_svc"
+let app_name = "account"
 let version = "0.0.1"
 let init_path = "my_flask_svc/__init__.py"
 
@@ -11,14 +12,15 @@ given
   ArchiveRoot
 
 when
-NewFlaskMicroserviceProject
+  NewFlaskMicroserviceProject
 
 then
   fileExists { project_name + "/__init__.py" }
   and fileExists { project_name + "/runserver.py" }
-  and fileExists { project_name + "/views.py" }
+  and fileExists { project_name + "/" + app_name + "/__init__.py" }
+  and fileExists { project_name + "/" + app_name + "/views.py" }
   and fileContains init_path version
   and fileContains readme_path project_name
   and fileContains readme_path description
   and fileContains { project_name + "/runserver.py" } project_name
-  and fileContains { project_name + "/views.py" } project_name
+  and fileContains { project_name + "/" + app_name + "/views.py" } app_name
