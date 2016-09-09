@@ -10,7 +10,6 @@
 @generator "Python Flask Microservice"
 editor NewFlaskMicroserviceProject
 
-uses atomist.common-editors.UpdateReadme
 uses SetProjectReadme
 uses AddCreationDateToReadme
 
