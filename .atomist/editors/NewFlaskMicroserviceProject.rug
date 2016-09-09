@@ -41,4 +41,3 @@ with file f when { f.name().endsWith(".py") }
 
 
 SetProjectReadme
-AddCreationDateToReadme

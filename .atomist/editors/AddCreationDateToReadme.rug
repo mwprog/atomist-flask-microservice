@@ -1,6 +1,0 @@
-
-@description "Adds a creation date to the README.md"
-editor AddCreationDateToReadme
- 
-with file f when path = "README.md"
-  do replace "{{creation_date}}" { new Date().toISOString().split('T')[0] }
