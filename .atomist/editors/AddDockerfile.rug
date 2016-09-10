@@ -1,0 +1,14 @@
+@tag "python"
+@tag "flask"
+@description "Add a Dockerfile to run the Flask microservice"
+editor AddDockerfile
+
+@maxLength 21
+@description "Name your project following PEP8 conventions."
+@displayName "Project name"
+param project_name: "^[A-Za-z0-9_]+$"
+
+let dockerfile = "Dockerfile.mustache"
+
+with project p
+	do merge dockerfile to "Dockerfile"
