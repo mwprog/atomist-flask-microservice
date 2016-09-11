@@ -10,20 +10,12 @@ COPY {{project_name}} /tmp/service/{{project_name}}
 COPY requirements.txt /tmp/service/requirements.txt
 COPY setup.py /tmp/service/setup.py
 
-# serving the Flask app using the well-established CherryPy WSGI server
 RUN cd /tmp/service && \
     pip install --no-cache-dir -r requirements.txt && \
-    pip install cherrypy==8.1.0 && \
     python3 setup.py install && \
     cd - && \
-    rm -rf /tmp/service && \
-    echo $'# -*- coding: utf-8 -*- \n\
-import cherrypy\n\
-from {{project_name}}.runserver import app\n\
-cherrypy.config.update({"environment": "production", "server.socket_host": "0.0.0.0"})\n\
-cherrypy.tree.graft(app)\n\
-cherrypy.engine.signals.subscribe()\n\
-cherrypy.engine.start()\n\
-cherrypy.engine.block()' > run.py
+    rm -rf /tmp/service 
 
-ENTRYPOINT ["python3", "run.py"]
+EXPOSE 5000
+
+ENTRYPOINT ["python3", "-m", "{{project_name}}", "--prod"]

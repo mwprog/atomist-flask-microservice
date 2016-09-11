@@ -31,7 +31,7 @@ $ python setup.py develop
 Run the application as follows:
 
 ```
-$ python {{project_name}}/runserver.py
+$ python -m {{project_name}} --dev
 ```
 
 then point your client at `http://localhost:5000/`.
@@ -47,5 +47,26 @@ framework and located in the `tests` directory.
 To execute them, run the following command:
 
 ```
-$ pytest tests
+$ pytest -v {{project_name}}/{{app_name}}/tests
 ```
+
+## Package & distribute your application
+
+The project provides a recipe to build a Docker
+image of the application and its dependencies to
+simply its distribution. You can build the image
+as follows:
+
+```
+$ docker build -t {{project_name}} .
+```
+
+To run the application inside a container, execute then
+the following commands:
+
+```
+$ docker run -d -p 5000:5000 {{project_name}}
+```
+
+This will use [CherryPy](http://cherrypy.org/) well-established 
+and production ready WSGI server.
