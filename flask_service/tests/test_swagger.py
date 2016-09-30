@@ -16,6 +16,8 @@ def test_document_health_endpoint():
     assert 'get' in api['paths']['/health']
     assert '200' in api['paths']['/health']['get']['responses']
     assert 'string' in api['paths']['/health']['get']['responses']['200']['schema']
+    assert '503' in api['paths']['/health']['get']['responses']
+    assert 'string' in api['paths']['/health']['get']['responses']['503']['schema']
 
 
 def test_document_status_endpoint():
@@ -24,8 +26,6 @@ def test_document_status_endpoint():
     assert 'get' in api['paths']['/status']
     assert '200' in api['paths']['/status']['get']['responses']
     assert 'string' in api['paths']['/status']['get']['responses']['200']['schema']
-    assert '503' in api['paths']['/status']['get']['responses']
-    assert 'string' in api['paths']['/status']['get']['responses']['503']['schema']
 
 
 def test_document_my_app_endpoint():
