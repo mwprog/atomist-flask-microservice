@@ -13,7 +13,7 @@ setup(
     name="flask_service",
     version=__version__,
     description="Flask based microservice.",
-    maintainer="Atomist",
+    maintainer="",
     packages=["flask_service", "flask_service.my_app"],
     platforms=["any"]
 )
