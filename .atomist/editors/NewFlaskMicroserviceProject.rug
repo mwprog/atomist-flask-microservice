@@ -48,6 +48,8 @@ begin
    do replace "the_app" app_name
    do replace "my_app" app_name
    do replace "flask_service" project_name
+   do replace "0.0.1" version
+   do replace "My application" description
 end
 
 SetProjectReadme
