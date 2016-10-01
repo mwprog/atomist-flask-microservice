@@ -18,4 +18,5 @@ RUN cd /tmp/service && \
 
 EXPOSE 5000
 
-ENTRYPOINT ["python3", "-m", "{{project_name}}", "--prod"]
+ENTRYPOINT ["python3", "-m", "{{project_name}}"]
+CMD ["--prod"]
