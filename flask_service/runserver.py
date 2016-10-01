@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import cherrypy
 import click
+
 from flask_service import create_app
 
 
