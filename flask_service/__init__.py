@@ -7,7 +7,7 @@ __version__ = '0.0.1'
 __all__ = ['create_app']
 
 
-def create_app() -> Flask:
+def create_app():
     """
     Create the :class:`flask.app.Flask` app, as well as its models.
     Also, register blueprints.

@@ -7,5 +7,5 @@ the_app_app = Blueprint('the_app_app', __name__)
 
 
 @the_app_app.route('/')
-def index() -> str:
+def index():
     return "Hello World!"

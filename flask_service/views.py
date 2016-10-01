@@ -9,7 +9,7 @@ main_app = Blueprint('main_app', __name__)
 
 
 @main_app.route('/api')
-def swagger() -> str:
+def swagger():
     """
     Responds with the OpenAPI specification for this application.
     """
@@ -17,7 +17,7 @@ def swagger() -> str:
 
 
 @main_app.route('/health')
-def health() -> str:
+def health():
     """
     Responds with the current's service health.
 
@@ -29,7 +29,7 @@ def health() -> str:
 
 
 @main_app.route('/status')
-def status() -> str:
+def status():
     """
     Responds with the current's service status.
 
