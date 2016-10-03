@@ -52,5 +52,10 @@ begin
    do replace "My application" description
 end
 
+# for now this the way we don't let the template license
+# move into the generated project
+with project
+    do deleteFile "LICENSE"
+
 SetProjectReadme
 AddDockerfile
