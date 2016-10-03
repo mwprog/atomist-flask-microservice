@@ -10,7 +10,7 @@ application in your GitHub organisation/account then will ask you to provide
 a set of parameters to generate the Flask application skeleton.
 
 Once the project is generated in your GitHub organisation/account, simply
-fcheckout the newly generated project and llow its README to get started.
+checkout the newly generated project and follow its README to get started.
 
 ---
 Created by Atomist. Need Help? [Join our Slack team](https://join.atomist.com/)
