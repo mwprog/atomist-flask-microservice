@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>atomist-project-templates</groupId>
     <artifactId>flask-service</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>pom</packaging>
     <name>flask-service</name>
     <description>A simple Python Flask project generator</description>
