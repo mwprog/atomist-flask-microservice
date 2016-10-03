@@ -41,13 +41,13 @@ then point your client at `http://localhost:5000/`.
 ### Run tests
 
 Tests are part of the project and should be continuously. Those
-tests are implemented using the [py.test](http://pytest.readthedocs.io/en/latest/) 
-framework and located in the `tests` directory.
+tests are implemented using the [py.test](http://pytest.readthedocs.io/en/latest/)
+framework and located in the `tests` directories.
 
 To execute them, run the following command:
 
 ```
-$ pytest -v {{project_name}}/{{app_name}}/tests
+$ pytest -v
 ```
 
 ## Package & distribute your application
@@ -68,5 +68,5 @@ the following commands:
 $ docker run -d -p 5000:5000 {{project_name}}
 ```
 
-This will use [CherryPy](http://cherrypy.org/) well-established 
+This will use [CherryPy](http://cherrypy.org/) well-established
 and production ready WSGI server.
