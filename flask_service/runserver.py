@@ -12,7 +12,7 @@ def run_dev():
     """
     Run the application using the built-in server.
     """
-    app.config.from_object("wp.settings_dev")
+    app.config.from_object("flask_service.settings_dev")
     app.run()
 
 
@@ -24,7 +24,7 @@ def run_prod():
 
     .. seealso: http://cherrypy.org/
     """
-    app.config.from_object("wp.settings_prod")
+    app.config.from_object("flask_service.settings_prod")
     cherrypy.config.update({
         "environment": "production",
         "server.socket_host": "0.0.0.0",
