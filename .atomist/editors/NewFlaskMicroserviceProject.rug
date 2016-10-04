@@ -23,7 +23,7 @@ param project_name: "^[A-Za-z0-9_]+$"
 @displayName "Application name"
 param app_name: "^[A-Za-z_]+$"
 
-@default "0.0.1"
+@default "0.1.0"
 @displayName "Semantic Version"
 @optional
 @description "A Semantic Version number of the form: MAJOR.MINOR.PATCH following guidelines at http://semver.org/"
