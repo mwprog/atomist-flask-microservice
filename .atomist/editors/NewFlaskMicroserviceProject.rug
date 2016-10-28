@@ -10,7 +10,6 @@
 editor NewFlaskMicroserviceProject
 
 uses SetProjectReadme
-uses AddDockerfile
 
 
 @maxLength 21
@@ -58,4 +57,3 @@ with project
     do deleteFile "LICENSE"
 
 SetProjectReadme
-AddDockerfile
