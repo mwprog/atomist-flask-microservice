@@ -20,4 +20,4 @@ with project p
 @description "Only work on projects that run a Flask application"
 predicate IsFlaskProject
   with project p
-    when { return(p.fileContains(p.name() + "/requirements.txt", "flask")) }
+    when { p.fileContains("requirements.txt", "flask") }

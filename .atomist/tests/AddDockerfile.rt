@@ -9,7 +9,7 @@ when
   AddDockerfile
 
 then
-  fileExists { project_name + "/Dockerfile" }
+  fileExists "Dockerfile"
 
 
 scenario Should not a Dockerfile to an empty project
@@ -24,5 +24,3 @@ when
 
 then
   NoChange
-
-
