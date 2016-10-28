@@ -3,12 +3,21 @@
 @description "Add a Dockerfile to run the Flask microservice"
 editor AddDockerfile
 
+precondition IsFlaskProject
+
 @maxLength 21
 @description "Name your project following PEP8 conventions."
 @displayName "Project name"
 param project_name: "^[A-Za-z0-9_]+$"
 
+
 let dockerfile = "Dockerfile.mustache"
 
 with project p
 	do merge dockerfile to "Dockerfile"
+
+
+@description "Only work on projects that run a Flask application"
+predicate IsFlaskProject
+  with project p
+    when { return(p.fileContains(p.name() + "/requirements.txt", "flask")) }

@@ -1,0 +1,28 @@
+scenario Should add a Dockerfile file to an existing Flask project
+
+let project_name = "my_flask_svc"
+
+given
+  ArchiveRoot
+
+when
+  AddDockerfile
+
+then
+  fileExists { project_name + "/Dockerfile" }
+
+
+scenario Should not a Dockerfile to an empty project
+
+let project_name = "my_flask_svc"
+
+given
+  Empty
+
+when
+  AddDockerfile
+
+then
+  NoChange
+
+
