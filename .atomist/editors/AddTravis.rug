@@ -1,0 +1,9 @@
+@tag "python"
+@tag "flask"
+@description "Add a travis.yml file to build the Flask microservice"
+editor AddTravis
+
+let travis = "travis.yml.mustache"
+
+with project p
+	do merge travis to ".travis.yml"

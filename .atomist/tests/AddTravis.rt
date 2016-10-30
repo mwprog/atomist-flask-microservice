@@ -1,0 +1,10 @@
+scenario Should add a Travis file to an existing Flask project
+
+given
+  ArchiveRoot
+
+when
+  AddTravis
+
+then
+  fileExists ".travis.yml"
