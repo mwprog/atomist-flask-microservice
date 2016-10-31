@@ -1,5 +1,5 @@
 #
-# Template to generate a project using the Flask framework and the
+# Generator to generate a project using the Flask framework and the
 # Python language.
 #
 @tag "python"
@@ -13,14 +13,15 @@ uses SetProjectReadme
 
 
 @maxLength 21
-@description "Name your project following PEP8 conventions."
+@description "Name your project following Python conventions."
 @displayName "Project name"
-param project_name: "^[A-Za-z0-9_]+$"
+@validInput "A valid Python name respecting usualy Python conventions (PEP 423)."
+param project_name: "^[A-Za-z][-A-Za-z0-9_]+$"
 
-@maxLength 21
-@description "Name your Flask application."
+@description "Name your Flask application following PEP8 conventions for package naming."
 @displayName "Application name"
-param app_name: "^[A-Za-z_]+$"
+@validInput "A valid Python package name respecting PEP8."
+param app_name: "^[a-z][a-z0-9_]+$"
 
 @default "0.1.0"
 @displayName "Semantic Version"
