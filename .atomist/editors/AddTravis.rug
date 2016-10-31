@@ -1,4 +1,3 @@
-@tag "python"
 @tag "flask"
 @description "Add a travis.yml file to build the Flask microservice"
 editor AddTravis

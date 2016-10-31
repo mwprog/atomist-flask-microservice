@@ -1,4 +1,3 @@
-@tag "python"
 @tag "flask"
 @description "Add a Dockerfile to run the Flask microservice"
 editor AddDockerfile

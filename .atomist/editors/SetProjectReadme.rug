@@ -1,6 +1,6 @@
-
+@tag "flask"
 @description "Set the README of a Flask project."
-editorSetProjectReadme
+editor SetProjectReadme
 
 @description "Name of the new project"
 @displayName "Name"
