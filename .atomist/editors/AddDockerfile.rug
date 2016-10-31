@@ -36,11 +36,21 @@ with project p
 
 with project p
     with file f when f.name = "Dockerfile"
-        do replace "flask_service" { p.name().split('/').reverse()[0] }
+        do replace "flask_service" {
+                                        var name = p.name();
+                                        if (name.startsWith('/'))
+                                           name = name.split('/').reverse()[0];
+                                        return(name);
+                                    }
 
 with project p
     with file f when f.name = "README.md"
-        do replace "flask_service" { p.name().split('/').reverse()[0] }
+        do replace "flask_service" {
+                                        var name = p.name();
+                                        if (name.startsWith('/'))
+                                           name = name.split('/').reverse()[0];
+                                        return(name);
+                                    }
 
 
 @description "Only work on projects that run a Flask application"
