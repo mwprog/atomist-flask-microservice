@@ -13,8 +13,6 @@ then
 
 scenario Should not a Dockerfile to an empty project
 
-let project_name = "my_flask_svc"
-
 given
   Empty
 
