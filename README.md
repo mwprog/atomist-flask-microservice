@@ -12,5 +12,10 @@ a set of parameters to generate the Flask application skeleton.
 Once the project is generated in your GitHub organisation/account, simply
 checkout the newly generated project and follow its README to get started.
 
+You can also enhance your new project, or an existing one, by going through the
+editors below:
+
+[![Add support for building Docker images from your Flask project](https://images.atomist.com/button/add-docker.png)](https://api.atomist.com/v1/projects/editors/47aff86f-afcb-4b6a-be33-4f4682cc80bc)
+
 ---
 Created by Atomist. Need Help? [Join our Slack team](https://join.atomist.com/)
