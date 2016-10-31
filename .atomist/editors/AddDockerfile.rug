@@ -4,16 +4,43 @@ editor AddDockerfile
 
 precondition IsFlaskProject
 
-@maxLength 21
-@description "Name your project following PEP8 conventions."
-@displayName "Project name"
-param project_name: "^[A-Za-z0-9_]+$"
-
-
 let dockerfile = "Dockerfile.mustache"
+let dockerReadmeDocs = """
+## Package & distribute your application as a container image
+
+The project provides a recipe to build a Docker
+image of the application and its dependencies to
+simply its distribution. You can build the image
+as follows:
+
+```
+$ docker build -t flask_service .
+```
+
+To run the application inside a container, execute then
+the following commands:
+
+```
+$ docker run -d -p 5000:5000 flask_service
+```
+
+This will use [CherryPy](http://cherrypy.org/) well-established
+and production ready WSGI server.
+"""
+
+with file f when path = "README.md"
+    do append dockerReadmeDocs
 
 with project p
 	do merge dockerfile to "Dockerfile"
+
+with project p
+    with file f when f.name = "Dockerfile"
+        do replace "flask_service" { p.name().split('/').reverse()[0] }
+
+with project p
+    with file f when f.name = "README.md"
+        do replace "flask_service" { p.name().split('/').reverse()[0] }
 
 
 @description "Only work on projects that run a Flask application"

@@ -1,7 +1,5 @@
 scenario Should add a Dockerfile file to an existing Flask project
 
-let project_name = "my_flask_svc"
-
 given
   ArchiveRoot
 
@@ -10,6 +8,7 @@ when
 
 then
   fileExists "Dockerfile"
+  and fileContains "README.md" "Package & distribute your application as a container image"
 
 
 scenario Should not a Dockerfile to an empty project
