@@ -15,7 +15,7 @@ uses SetProjectReadme
 @maxLength 21
 @description "Name your project following Python conventions."
 @displayName "Project name"
-@validInput "A valid Python name respecting usualy Python conventions (PEP 423)."
+@validInput "A valid Python name respecting usually Python conventions (PEP 423)."
 param project_name: "^[A-Za-z][-A-Za-z0-9_]+$"
 
 @description "Name your Flask application following PEP8 conventions for package naming."

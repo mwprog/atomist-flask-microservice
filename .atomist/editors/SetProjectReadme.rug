@@ -2,13 +2,15 @@
 @description "Set the README of a Flask project."
 editor SetProjectReadme
 
-@description "Name of the new project"
-@displayName "Name"
-param project_name: @project_name
+@maxLength 21
+@description "Name your project following Python conventions."
+@displayName "Project name"
+@validInput "A valid Python name respecting usually Python conventions (PEP 423)."
+param project_name: "^[A-Za-z][-A-Za-z0-9_]+$"
 
-@default ""
+@default "My new project"
 @optional
-@description "Description of the new project"
+@description "Describe your project in a few words."
 @displayName "description"
 @validInput "Free Text"
 param description: .*
