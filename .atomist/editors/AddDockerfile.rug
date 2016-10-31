@@ -38,8 +38,11 @@ with project p
     with file f when f.name = "Dockerfile"
         do replace "flask_service" {
                                         var name = p.name();
+                                        var segments = name.split('/');
                                         if (name.startsWith('/'))
-                                           name = name.split('/').reverse()[0];
+                                           name = name.reverse()[0];
+                                        else
+                                           name = name[1];
                                         return(name);
                                     }
 
@@ -47,8 +50,11 @@ with project p
     with file f when f.name = "README.md"
         do replace "flask_service" {
                                         var name = p.name();
+                                        var segments = name.split('/');
                                         if (name.startsWith('/'))
-                                           name = name.split('/').reverse()[0];
+                                           name = name.reverse()[0];
+                                        else
+                                           name = name[1];
                                         return(name);
                                     }
 
