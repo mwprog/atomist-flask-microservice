@@ -35,33 +35,15 @@ with project p
 	do merge dockerfile to "Dockerfile"
 
 with project p
-    with file f when f.name = "Dockerfile"
-        do replace "flask_service" {
-                                        var name = p.name();
-                                        var segments = name.split('/');
-                                        if (name.startsWith('/'))
-                                           name = segments.reverse()[0];
-                                        else if (segments.length > 1)
-                                           name = segments[1];
-                                        else
-                                           name = segments[0];
-                                        return(name);
-                                    }
+    with dockerfile f when path = "Dockerfile"
+    begin
+        do addCopy { p.name() + " /tmp/service/" + p.name()}
+        do addOrUpdateEntryPoint { "[\"python3\", \"-m\", \"" + p.name() + "\"]"}
+    end
 
 with project p
-    with file f when f.name = "README.md"
-        do replace "flask_service" {
-                                        var name = p.name();
-                                        var segments = name.split('/');
-                                        if (name.startsWith('/'))
-                                           name = segments.reverse()[0];
-                                        else if (segments.length > 1)
-                                           name = segments[1];
-                                        else
-                                           name = segments[0];
-                                        return(name);
-                                    }
-
+    with file f when name = "README.md"
+      do replace "flask_service" { p.name() }
 
 @description "Only work on projects that run a Flask application"
 predicate IsFlaskProject

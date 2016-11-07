@@ -6,7 +6,6 @@ RUN apk add --no-cache python3 && \
     pip3 install --upgrade pip setuptools && \
     rm -r /root/.cache
 
-COPY flask_service /tmp/service/flask_service
 COPY requirements.txt /tmp/service/requirements.txt
 COPY setup.py /tmp/service/setup.py
 
@@ -14,9 +13,8 @@ RUN cd /tmp/service && \
     pip install --no-cache-dir -r requirements.txt && \
     python3 setup.py install && \
     cd - && \
-    rm -rf /tmp/service 
+    rm -rf /tmp/service
 
 EXPOSE 5000
 
-ENTRYPOINT ["python3", "-m", "flask_service"]
 CMD ["--prod"]

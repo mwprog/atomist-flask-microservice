@@ -8,6 +8,8 @@ when
 
 then
   fileExists "Dockerfile"
+  and fileContains "Dockerfile" { "COPY " + result.name() + " /tmp/service/" + result.name() }
+  and fileContains "Dockerfile" { "ENTRYPOINT " + "[\"python3\", \"-m\", \"" + result.name() + "\"]"}
   and fileContains "README.md" "Package & distribute your application as a container image"
 
 
